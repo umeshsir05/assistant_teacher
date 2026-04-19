@@ -1,5 +1,6 @@
 /* style.css - Assistant Teacher Notes Hub */
-/* Reset & Base */
+/* Enhanced with attractive toggle menu & smooth interactions */
+
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +27,8 @@
     --badge-bg: #eef2ff;
     --badge-text: #1e40af;
     --footer-bg: #f8fafc;
+    --gradient-start: #2c7da0;
+    --gradient-end: #3b82f6;
 }
 
 body.dark {
@@ -37,9 +40,9 @@ body.dark {
     --text-muted: #94a3b8;
     --border-light: #334155;
     --header-bg: #111827;
-    --accent: #3b82f6;
+    --accent: #60a5fa;
     --accent-soft: #1e293b;
-    --accent-hover: #60a5fa;
+    --accent-hover: #93c5fd;
     --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.3);
     --drawer-bg: #1e293b;
     --drawer-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -47,6 +50,8 @@ body.dark {
     --badge-bg: #1e293b;
     --badge-text: #93c5fd;
     --footer-bg: #0f172a;
+    --gradient-start: #60a5fa;
+    --gradient-end: #3b82f6;
 }
 
 body {
@@ -94,7 +99,7 @@ body {
     cursor: pointer;
     padding: 0.4rem;
     border-radius: 12px;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.1s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,6 +109,7 @@ body {
 
 .menu-toggle-btn:hover {
     background: var(--nav-item-hover);
+    transform: scale(1.02);
 }
 
 .site-title {
@@ -166,6 +172,153 @@ body {
     border: 1px solid var(--border-light);
 }
 
+/* ========== ATTRACTIVE TOGGLE MENU (SIDE DRAWER) ========== */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-drawer {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: min(320px, 85%);
+    height: 100%;
+    background: var(--drawer-bg);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: var(--drawer-shadow);
+    border-right: 1px solid var(--border-light);
+    backdrop-filter: blur(0px);
+}
+
+.side-drawer.open {
+    left: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background-clip: border-box;
+    color: white;
+    border-radius: 0 0 20px 20px;
+}
+
+.drawer-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.close-drawer-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 30px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.close-drawer-btn:hover {
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.05);
+}
+
+.drawer-nav-list {
+    list-style: none;
+    padding: 1rem 0.75rem;
+    margin: 0;
+    flex: 1;
+}
+
+.drawer-nav-list .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1.2rem;
+    margin: 0.4rem 0;
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: all 0.25s ease;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.drawer-nav-list .nav-link i {
+    width: 1.8rem;
+    font-size: 1.3rem;
+    text-align: center;
+    transition: transform 0.2s ease, color 0.2s;
+    color: var(--accent);
+}
+
+.drawer-nav-list .nav-link:hover {
+    background: linear-gradient(95deg, var(--nav-item-hover), transparent);
+    transform: translateX(6px);
+    color: var(--accent);
+}
+
+.drawer-nav-list .nav-link:hover i {
+    transform: scale(1.1);
+    color: var(--accent-hover);
+}
+
+.drawer-nav-list .nav-link.active {
+    background: linear-gradient(95deg, var(--accent-soft), transparent);
+    color: var(--accent);
+    font-weight: 600;
+    border-left: 3px solid var(--accent);
+}
+
+.drawer-nav-list .nav-link.active i {
+    color: var(--accent);
+}
+
+.drawer-footer {
+    padding: 1.2rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--drawer-bg);
+}
+
+/* ========== Rest of the styles (unchanged but kept for consistency) ========== */
 .notes-header {
     padding: 1.8rem 2rem 1rem 2rem;
     border-bottom: 1px solid var(--border-light);
@@ -199,7 +352,6 @@ body {
     color: var(--text-secondary);
 }
 
-/* Notes content styling */
 .note-section {
     margin-bottom: 1.8rem;
 }
@@ -227,130 +379,11 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* loading skeleton */
 .loading-skeleton {
     color: var(--text-muted);
     text-align: center;
     padding: 2rem;
     font-style: italic;
-}
-
-/* ----- SIDE DRAWER (Toggle Menu) ----- */
-.drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s;
-}
-
-.drawer-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.side-drawer {
-    position: fixed;
-    top: 0;
-    left: -280px;
-    width: min(280px, 80%);
-    height: 100%;
-    background: var(--drawer-bg);
-    z-index: 1100;
-    display: flex;
-    flex-direction: column;
-    transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    box-shadow: var(--drawer-shadow);
-    border-right: 1px solid var(--border-light);
-}
-
-.side-drawer.open {
-    left: 0;
-}
-
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 1.2rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.drawer-header h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-primary);
-}
-
-.close-drawer-btn {
-    background: transparent;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--text-muted);
-    padding: 0.4rem;
-    border-radius: 30px;
-    transition: background 0.2s;
-}
-
-.close-drawer-btn:hover {
-    background: var(--nav-item-hover);
-    color: var(--text-primary);
-}
-
-.drawer-nav-list {
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    flex: 1;
-}
-
-.drawer-nav-list .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.9rem 1.5rem;
-    margin: 0.2rem 0.5rem;
-    border-radius: 14px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--text-secondary);
-}
-
-.drawer-nav-list .nav-item i {
-    width: 1.8rem;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-.drawer-nav-list .nav-item:hover {
-    background: var(--nav-item-hover);
-    color: var(--accent);
-}
-
-.drawer-nav-list .nav-item.active {
-    background: var(--accent-soft);
-    color: var(--accent);
-    font-weight: 600;
-}
-
-.drawer-footer {
-    padding: 1.5rem;
-    border-top: 1px solid var(--border-light);
-    font-size: 0.8rem;
-    text-align: center;
-    color: var(--text-muted);
 }
 
 /* Footer */
@@ -394,8 +427,9 @@ body {
         font-size: 1.25rem;
     }
 
-    .drawer-nav-list .nav-item {
-        padding: 0.7rem 1.2rem;
+    .drawer-nav-list .nav-link {
+        padding: 0.7rem 1rem;
+        margin: 0.3rem 0;
     }
 }
 
@@ -408,12 +442,11 @@ body {
     }
 }
 
-/* smooth scroll */
+/* smooth scroll & animations */
 html {
     scroll-behavior: smooth;
 }
 
-/* Utility animations */
 @keyframes fadeSlide {
     from {
         opacity: 0;
@@ -427,4 +460,22 @@ html {
 
 .notes-body {
     animation: fadeSlide 0.25s ease-out;
+}
+
+/* Additional attractive hover for drawer items */
+.drawer-nav-list .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-soft), transparent);
+    transition: width 0.3s ease;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.drawer-nav-list .nav-link:hover::before {
+    width: 100%;
 }
