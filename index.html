@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Assistant Teacher Notes | Study Hub</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Overlay for drawer (menu backdrop) -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Side Drawer / Toggle Menu -->
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h3><i class="fas fa-chalkboard-teacher"></i> Topics</h3>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="drawer-nav-list" id="menuList">
+                <li data-subject="cdp" class="nav-item active">
+                    <i class="fas fa-child"></i> <span>CDP</span>
+                </li>
+                <li data-subject="general-hindi" class="nav-item">
+                    <i class="fas fa-language"></i> <span>General Hindi</span>
+                </li>
+                <li data-subject="pedagogy-of-english" class="nav-item">
+                    <i class="fas fa-book-open"></i> <span>Pedagogy of English</span>
+                </li>
+                <li data-subject="environment" class="nav-item">
+                    <i class="fas fa-leaf"></i> <span>Environment</span>
+                </li>
+                <li data-subject="general-maths" class="nav-item">
+                    <i class="fas fa-calculator"></i> <span>General Maths</span>
+                </li>
+                <li data-subject="computer" class="nav-item">
+                    <i class="fas fa-laptop-code"></i> <span>Computer</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="drawer-footer">
+            <p>📚 Assistant Teacher Notes</p>
+        </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="top-bar">
+            <div class="logo-area">
+                <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="site-title"><i class="fas fa-graduation-cap"></i> TeacherNotes</h1>
+            </div>
+            <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main content card (notes section) -->
+        <main class="content-main">
+            <div class="notes-card">
+                <div class="notes-header">
+                    <h2 id="subjectTitle">Child Development & Pedagogy (CDP)</h2>
+                    <div class="subject-badge" id="subjectBadge">Core Concepts</div>
+                </div>
+                <div class="notes-body" id="notesContent">
+                    <!-- Dynamic notes will be injected here -->
+                    <div class="loading-skeleton">Loading notes...</div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer (optional) -->
+        <footer class="app-footer">
+            <p>📖 Comprehensive notes for assistant teacher exams & pedagogy</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
