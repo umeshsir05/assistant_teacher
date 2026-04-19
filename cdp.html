@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CDP - बाल विकास एवं शिक्षाशास्त्र | पूर्ण सिलेबस नोट्स</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional page-specific styles for better readability */
+        .unit-card {
+            margin-bottom: 2.5rem;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+        .unit-header {
+            background: var(--accent-soft);
+            padding: 1.2rem 1.8rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        .unit-header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .topic-block {
+            margin-bottom: 1.8rem;
+            padding: 0 0.2rem;
+        }
+        .topic-block h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 0.9rem;
+        }
+        .topic-block p, .topic-block li {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .topic-block ul, .topic-block ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .highlight {
+            background: var(--accent-soft);
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            border-left: 5px solid var(--accent);
+        }
+        .sub-section {
+            margin: 1rem 0 1rem 1rem;
+            padding-left: 0.5rem;
+            border-left: 2px dashed var(--border-light);
+        }
+        @media (max-width: 640px) {
+            .unit-header h3 { font-size: 1.3rem; }
+            .topic-block h4 { font-size: 1.2rem; }
+            .unit-header { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Drawer Overlay & Side Drawer (same as index) -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+        <h3><i class="fas fa-chalkboard-teacher"></i> विषय सूची</h3>
+        <button class="close-drawer-btn" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <nav>
+        <ul class="drawer-nav-list">
+            <li><a href="cdp.html" class="nav-link active"><i class="fas fa-child"></i> CDP (बाल विकास)</a></li>
+            <li><a href="general-hindi.html" class="nav-link"><i class="fas fa-language"></i> General Hindi</a></li>
+            <li><a href="pedagogy-of-english.html" class="nav-link"><i class="fas fa-book-open"></i> Pedagogy of English</a></li>
+            <li><a href="environment.html" class="nav-link"><i class="fas fa-leaf"></i> Environment</a></li>
+            <li><a href="general-maths.html" class="nav-link"><i class="fas fa-calculator"></i> General Maths</a></li>
+            <li><a href="computer.html" class="nav-link"><i class="fas fa-laptop-code"></i> Computer</a></li>
+        </ul>
+    </nav>
+    <div class="drawer-footer">
+        <p>📚 Assistant Teacher Notes | पूर्ण सिलेबस</p>
+    </div>
+</div>
+
+<!-- Main App Container -->
+<div class="app-container">
+    <header class="top-bar">
+        <div class="logo-area">
+            <button class="menu-toggle-btn" id="menuToggleBtn"><i class="fas fa-bars"></i></button>
+            <h1 class="site-title"><i class="fas fa-graduation-cap"></i> CDP: बाल विकास एवं शिक्षाशास्त्र</h1>
+        </div>
+        <div class="header-actions">
+            <button class="dark-mode-toggle" id="darkModeToggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <main class="content-main">
+        <!-- Hero / Title -->
+        <div class="notes-card" style="margin-bottom: 1.5rem;">
+            <div class="notes-header">
+                <h2>📘 बाल विकास एवं शिक्षाशास्त्र (CDP)</h2>
+                <div class="subject-badge">CTET / UPTET / SUPERTET हेतु संपूर्ण नोट्स</div>
+            </div>
+            <div class="notes-body">
+                <p>यह पृष्ठ दिए गए सिलेबस (छवि) के अनुसार तैयार किया गया है। सभी इकाइयों को विस्तार से समझाया गया है – परीक्षा उपयोगी सिद्धांत, उदाहरण एवं शैक्षणिक निहितार्थ।</p>
+            </div>
+        </div>
+
+        <!-- इकाई 1: बाल विकास परिचय -->
+        <div class="unit-card notes-card">
+            <div class="unit-header">
+                <h3><i class="fas fa-seedling"></i> इकाई 1: बाल विकास परिचय</h3>
+            </div>
+            <div class="notes-body">
+                <div class="topic-block">
+                    <h4>🔹 विकास की अवधारणा (Concept of Development)</h4>
+                    <p>विकास जीवनपर्यंत चलने वाली क्रमबद्ध, अनुक्रमिक प्रक्रिया है जिसमें मात्रात्मक (वृद्धि) और गुणात्मक परिवर्तन (परिपक्वता, अनुभव) शामिल हैं।</p>
+                    <p><strong>विकास की अवस्थाएँ:</strong> गर्भावस्था (प्रसवपूर्व), शैशवावस्था (0-2 वर्ष), प्रारंभिक बाल्यावस्था (2-6), उत्तर बाल्यावस्था (6-12), किशोरावस्था (12-18) – प्रत्येक अवस्था की विशिष्ट शारीरिक, संज्ञानात्मक एवं सामाजिक आवश्यकताएँ।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>🔹 शारीरिक, संज्ञानात्मक, सामाजिक एवं संवेगात्मक विकास</h4>
+                    <ul>
+                        <li><strong>शारीरिक:</strong> मस्तिष्क, मांसपेशियाँ, कंकाल तंत्र, मोटर कौशल (स्थूल एवं सूक्ष्म)।</li>
+                        <li><strong>संज्ञानात्मक:</strong> सोच, तर्क, स्मृति, समस्या समाधान (पियाजे, वाइगोत्सकी)।</li>
+                        <li><strong>सामाजिक:</strong> दूसरों के साथ अन्तःक्रिया, सहयोग, नियमों का पालन, भूमिका निर्वाह।</li>
+                        <li><strong>संवेगात्मक:</strong> भावनाओं की पहचान, नियंत्रण, आत्म-जागरूकता, सहानुभूति।</li>
+                    </ul>
+                </div>
+                <div class="topic-block">
+                    <h4>🔹 विकास को प्रभावित करने वाले कारक: प्रकृति (Nature) vs पोषण (Nurture)</h4>
+                    <p><strong>प्रकृति:</strong> आनुवंशिकता, जैविक कारक, न्यूरोलॉजिकल संरचना। <strong>पोषण:</strong> पर्यावरण, पालन-पोषण, शिक्षा, संस्कृति, सामाजिक-आर्थिक स्थिति। <strong>निरंतरता (Continuity):</strong> सतत विकास (उदा. भाषा) – <strong>अनिरंतरता (Discontinuity):</strong> चरणों में विकास (पियाजे)। <strong>प्रारंभिक अनुभव (प्रारंभिक बाल्यावस्था) एवं परिवर्ती अनुभव (बाद के वर्ष)</strong> – दोनों ही व्यक्तित्व निर्माण में महत्वपूर्ण।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>🔹 बाल विकास की सामाजिक एवं सांस्कृतिक पृष्ठभूमि</h4>
+                    <p>बच्चे का विकास उसके समाज, परिवार, रीति-रिवाजों, भाषा एवं मूल्यों से गहराई से प्रभावित होता है। वाइगोत्सकी के अनुसार सीखना सांस्कृतिक संदर्भ में घटित होता है। शिक्षक को बहुसांस्कृतिक समझ विकसित करनी चाहिए।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>🔹 बच्चों का अध्ययन – विधियाँ</h4>
+                    <ul>
+                        <li><strong>अवलोकन विधि:</strong> प्राकृतिक एवं नियंत्रित अवलोकन।</li>
+                        <li><strong>साक्षात्कार विधि:</strong> संरचित एवं अर्ध-संरचित साक्षात्कार।</li>
+                        <li><strong>प्रश्नावली एवं सर्वेक्षण:</strong> बड़े समूह पर अध्ययन।</li>
+                        <li><strong>केस स्टडी:</strong> एक बच्चे का गहन अध्ययन।</li>
+                        <li><strong>मनोवैज्ञानिक परीक्षण:</strong> बुद्धि, योग्यता, व्यक्तित्व परीक्षण।</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- इकाई 2: विकास के पहलू -->
+        <div class="unit-card notes-card">
+            <div class="unit-header">
+                <h3><i class="fas fa-chart-line"></i> इकाई 2: विकास के पहलू</h3>
+            </div>
+            <div class="notes-body">
+                <div class="topic-block">
+                    <h4>📌 (क) शारीरिक एवं गतिव्याप्त (Motor) विकास</h4>
+                    <p><strong>शरीर के अंगों के अनुपात में बदलाव:</strong> शिशु में सिर बड़ा, धीरे-धीरे अंग समानुपातिक होते हैं। <strong>ऊँचाई एवं भार में वृद्धि:</strong> प्रथम वर्ष में तीव्र, फिर स्थिर। <strong>स्थूल गतिव्याप्ति (Gross motor):</strong> दौड़ना, कूदना, चढ़ना। <strong>सूक्ष्म गतिव्याप्ति (Fine motor):</strong> लिखना, बटन खोलना, चित्र बनाना। <strong>शारीरिक नियंत्रण एवं समन्वयन:</strong> Cephalocaudal (सिर से पैर) और Proximodistal (केंद्र से बाहर) सिद्धांत।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>📌 (ख) संवेगात्मक एवं नैतिक विकास</h4>
+                    <p><strong>संवेगात्मक विकास:</strong> जन्म से ही मूल भावनाएँ (खुशी, क्रोध, भय) – बाद में जटिल भावनाएँ (गर्व, शर्म, अपराधबोध) विकसित होती हैं। संवेग नियमन की क्षमता बढ़ती है।</p>
+                    <p><strong>नैतिक विकास (कोहलबर्ग एवं पियाजे):</strong> 
+                        <br>कोहलबर्ग के तीन स्तर: पूर्व-परम्परागत (दण्ड/पुरस्कार), परम्परागत (सामाजिक नियम), उत्तर-परम्परागत (नैतिक सिद्धांत)।
+                        <br>पियाजे: हेटरोनॉमस (4-7 वर्ष – नियम बाहरी) → ऑटोनॉमस (10 वर्ष+ – नियम सहमति से)।
+                    </p>
+                    <p><strong>विद्यालय एवं घर का वातावरण, मित्र/साथी समूह एवं व्यक्तियों के साथ संबंध:</strong> सहकर्मी समूह सामाजिक कौशल, सहयोग और पहचान निर्माण में मदद करता है। परिवार मूल्यों की नींव रखता है।</p>
+                    <p><strong>व्यक्तित्व का विकास एवं समाजीकरण:</strong> एरिक्सन के मनोसामाजिक चरण (विश्वास बनाम अविश्वास, स्वायत्तता बनाम लज्जा, पहल बनाम अपराध, उद्योग बनाम हीनता, अहम्-पहचान बनाम भूमिका भ्रम)। समाजीकरण के एजेंट: परिवार, विद्यालय, मीडिया, धर्म।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- इकाई 3: सीखना एवं संज्ञान का विकास -->
+        <div class="unit-card notes-card">
+            <div class="unit-header">
+                <h3><i class="fas fa-brain"></i> इकाई 3: सीखना एवं संज्ञान का विकास</h3>
+            </div>
+            <div class="notes-body">
+                <div class="topic-block">
+                    <h4>🧠 सीखना क्या है? बच्चे कैसे सीखते हैं?</h4>
+                    <p>सीखना अनुभवों के परिणामस्वरूप व्यवहार में अपेक्षाकृत स्थायी परिवर्तन। बच्चे सक्रिय रूप से अन्वेषण, अनुकरण, अन्तःक्रिया, खेल और समस्या-समाधान के माध्यम से सीखते हैं।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>📚 विविध धारणाएँ – व्यवहारवादी, संरचनावादी, सामाजिक संरचनावाद</h4>
+                    <ul>
+                        <li><strong>व्यवहारवाद (पावलव, स्किनर, थार्नडाइक):</strong> उद्दीपन-अनुक्रिया संबंध, पुनर्बलन एवं दण्ड।</li>
+                        <li><strong>संरचनावाद/रचनावाद (पियाजे):</strong> बच्चा अपने ज्ञान का निर्माण स्वयं करता है (Constructivism)।</li>
+                        <li><strong>सामाजिक संरचनावाद (वाइगोत्सकी):</strong> सीखना सामाजिक अन्तःक्रिया एवं सांस्कृतिक उपकरणों पर निर्भर।</li>
+                        <li><strong>संज्ञान (Cognition):</strong> जानने, समझने, तर्क करने, स्मरण रखने की मानसिक प्रक्रियाएँ।</li>
+                    </ul>
+                </div>
+                <div class="topic-block">
+                    <h4>🧩 पियाजे का संज्ञानात्मक विकास सिद्धांत (बच्चों की सोच)</h4>
+                    <p><strong>मूल अवधारणाएँ:</strong> स्कीमा (Schema) – ज्ञान की संरचना; सम्मिलन (Assimilation) – नई सूचना को पुरानी स्कीमा में ढालना; समायोजन (Accommodation) – स्कीमा बदलना; व्यवस्थापन (Organization) – स्कीमाओं को व्यवस्थित करना; संतुलनीकरण (Equilibration) – संज्ञानात्मक संतुलन की प्रक्रिया।</p>
+                    <p><strong>अवस्थाएँ:</strong>
+                        <br>1. <strong>संवेदी-क्रियात्मक (0-2 वर्ष):</strong> इन्द्रियों एवं क्रियाओं के माध्यम से ज्ञान, वस्तु स्थायित्व का विकास।
+                        <br>2. <strong>पूर्व-संक्रियात्मक (2-7 वर्ष):</strong> प्रतीकात्मक सोच, अहंकेंद्रितता, भाषा का विस्फोट।
+                        <br>3. <strong>मूर्त-संक्रियात्मक (7-11 वर्ष):</strong> तार्किक सोच (कंक्रीट वस्तुओं पर), संरक्षण की समझ।
+                        <br>4. <strong>औपचारिक संक्रियात्मक (11+ वर्ष):</strong> अमूर्त चिन्तन, काल्पनिक परिकल्पना, व्यवस्थित समस्या समाधान।
+                    </p>
+                    <p><strong>किशोरों की सोच के लक्षण:</strong> अमूर्त चिन्तन, आदर्शवाद, अहंकेंद्रितता (काल्पनिक दर्शक, व्यक्तिगत मिथक)।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>📖 वाइगोत्सकी (Lev Vygotsky): सामाजिक-सांस्कृतिक सिद्धांत</h4>
+                    <p><strong>निकट विकास क्षेत्र (ZPD – Zone of Proximal Development):</strong> वह क्षेत्र जहाँ बच्चा अकेले नहीं कर सकता लेकिन मार्गदर्शन से कर सकता है। <strong>स्कैफोल्डिंग (Scaffolding):</strong> शिक्षक/साथी द्वारा दी गई संरचित सहायता। <strong>रचनावाद (Constructivism):</strong> ज्ञान सामाजिक अन्तःक्रिया में निर्मित होता है। शिक्षक की भूमिका – सुविधाकर्ता, सहायक, ZPD को पहचानना।</p>
+                    <div class="highlight">
+                        <i class="fas fa-lightbulb"></i> <strong>शैक्षणिक महत्त्व:</strong> सहपाठी शिक्षण, प्रश्नोत्तरी, समूह चर्चा, प्रोजेक्ट कार्य – सामाजिक संदर्भ में सीखने को बढ़ावा।
+                    </div>
+                </div>
+                <div class="topic-block">
+                    <h4>🔍 बच्चा एक समाधानकारी तथा वैज्ञानिक अनुसंधानकर्ता</h4>
+                    <p>बच्चे जन्म से ही सक्रिय अन्वेषक होते हैं। वे अपने पर्यावरण के बारे में परिकल्पनाएँ बनाते हैं, प्रयोग करते हैं और निष्कर्ष निकालते हैं (वैज्ञानिक विधि के समान)।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>💡 बच्चों की वैकल्पिक अवधारणाएँ (Alternative Conceptions)</h4>
+                    <p>बच्चों के पास अपने दैनिक अनुभवों से बनी ग़लत या अपूर्ण धारणाएँ होती हैं (जैसे – सूर्य पृथ्वी के चारों ओर घूमता है)। शिक्षक को संवाद, प्रदर्शन और गतिविधियों के माध्यम से इन अवधारणाओं को सही करना चाहिए।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>🎯 अभिप्रेरणा (Motivation) और सीखना</h4>
+                    <p><strong>आंतरिक अभिप्रेरणा:</strong> रुचि, जिज्ञासा, आत्म-संतुष्टि – अधिक प्रभावी और दीर्घकालिक। <strong>बाह्य अभिप्रेरणा:</strong> पुरस्कार, दण्ड, ग्रेड। मास्लो का आवश्यकता पदानुक्रम: बुनियादी आवश्यकताएँ (भोजन, सुरक्षा) पूरी होने पर ही उच्च स्तर की सीख संभव। शिक्षक को प्रशंसा, चुनौतीपूर्ण कार्य, सकारात्मक वातावरण देकर प्रेरित करना चाहिए।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- इकाई 4: विशेष आवश्यकता वाले बच्चे, RTE 2009, शिक्षक की भूमिका -->
+        <div class="unit-card notes-card">
+            <div class="unit-header">
+                <h3><i class="fas fa-hand-holding-heart"></i> इकाई 4: विशेष आवश्यकता वाले बच्चे, RTE 2009 एवं शिक्षक</h3>
+            </div>
+            <div class="notes-body">
+                <div class="topic-block">
+                    <h4>🧩 विशेष आवश्यकता वाले बच्चे (CWSN) – अवधारणा</h4>
+                    <p><strong>क्षति (Impairment):</strong> शारीरिक/मानसिक अंग की हानि (जैसे, दृष्टि कमी)। <strong>अपंगता (Disability):</strong> क्रियात्मक सीमा (जैसे, चलने में असमर्थता)। <strong>अक्षमता (Handicap):</strong> सामाजिक वातावरण में बाधा (जैसे, रैंप न होने पर व्हीलचेयर उपयोगकर्ता)।</p>
+                    <p><strong>विभिन्नताओं में समानता (Inclusive Education):</strong> सभी बच्चों को उनकी क्षमताओं/अक्षमताओं की परवाह किए बिना सामान्य कक्षा में शिक्षा पाने का अधिकार। सीखने की अक्षमताएँ – डिस्लेक्सिया (पढ़ने में कठिनाई), ADHD (ध्यान अभाव/अतिसक्रियता), ऑटिज्म स्पेक्ट्रम। बौद्धिक अक्षमता, दृष्टि/श्रवण बाधित बच्चों के लिए अनुकूलन रणनीतियाँ (ब्रेल, सांकेतिक भाषा, सहायक उपकरण)।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>🏫 ज्ञान और शिक्षक (शिक्षक की अवधारणा, पाठ्यक्रम की अवधारणा)</h4>
+                    <p><strong>शिक्षक की जरूरत:</strong> मार्गदर्शक, सुविधाकर्ता, मूल्यांकनकर्ता, प्रेरक। <strong>पाठ्यक्रम की अवधारणा:</strong> लक्ष्यों, सामग्री, शिक्षण विधियों और मूल्यांकन का समग्र ढाँचा। <strong>शिक्षक के निर्माण की समस्याएँ:</strong> अपर्याप्त प्रशिक्षण, बड़ी कक्षाएँ, संसाधनों की कमी, विविध आवश्यकताएँ। <strong>शिक्षक के चुनाव के आधार:</strong> योग्यता (न्यूनतम शैक्षिक योग्यता), शिक्षक पात्रता परीक्षा (TET), संवेदनशीलता, संचार कौशल।</p>
+                </div>
+                <div class="topic-block">
+                    <h4>📜 शिक्षा का अधिकार अधिनियम – RTE 2009 (मुख्य प्रावधान)</h4>
+                    <ul>
+                        <li>6-14 वर्ष के बच्चों के लिए मुफ्त एवं अनिवार्य शिक्षा (धारा 3)।</li>
+                        <li>प्रवेश के समय कोई आयु प्रमाण पत्र या परीक्षा नहीं।</li>
+                        <li>कोई शारीरिक दण्ड या मानसिक प्रताड़ना नहीं (धारा 17)।</li>
+                        <li>25% आरक्षण आर्थिक रूप से कमजोर वर्गों के लिए निजी स्कूलों में।</li>
+                        <li>स्कूल प्रबंधन समितियों (SMC) में 75% अभिभावक।</li>
+                        <li>शिक्षक-छात्र अनुपात, प्रशिक्षित शिक्षक, निरंतर व्यावसायिक विकास।</li>
+                    </ul>
+                </div>
+                <div class="topic-block">
+                    <h4>👩‍🏫 शिक्षक की भूमिका एवं उत्तरदायित्व, बाल अधिकार</h4>
+                    <p><strong>शिक्षक की भूमिका:</strong> सीखने का सृजनात्मक वातावरण बनाना, सभी बच्चों तक पहुँच सुनिश्चित करना, विशेष आवश्यकताओं को पहचानना, RTE के प्रावधानों का पालन करना, माता-पिता से सहयोग।</p>
+                    <p><strong>बाल अधिकार (UNCRC):</strong> जीवन का अधिकार, स्वास्थ्य का अधिकार, शिक्षा का अधिकार, खेलने का अधिकार, अभिव्यक्ति की स्वतंत्रता, सुरक्षा (बाल श्रम, दुर्व्यवहार से)। POCSO अधिनियम 2012 – बाल यौन अपराधों से संरक्षण।</p>
+                    <div class="highlight">
+                        <i class="fas fa-chalkboard-user"></i> <strong>निष्कर्ष:</strong> एक प्रभावी शिक्षक के लिए CDP की समझ आवश्यक है – बाल विकास के सिद्धांत, विविध आवश्यकताएँ, नैतिक एवं कानूनी जिम्मेदारियाँ।
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- अतिरिक्त पुनरावृत्ति बॉक्स -->
+        <div class="notes-card" style="margin-top: 1rem;">
+            <div class="notes-header">
+                <h2>📝 परीक्षा उपयोगी सारांश</h2>
+            </div>
+            <div class="notes-body">
+                <ul>
+                    <li><strong>पियाजे की चार अवस्थाएँ</strong> – आयु, विशेषताएँ, शैक्षिक गतिविधियाँ।</li>
+                    <li><strong>वाइगोत्सकी – ZPD & Scaffolding</strong> – शिक्षक सहायक के रूप में।</li>
+                    <li><strong>कोहलबर्ग नैतिक विकास के तीन स्तर</strong> – पूर्व-परम्परागत, परम्परागत, उत्तर-परम्परागत।</li>
+                    <li><strong>RTE 2009 की मुख्य धाराएँ (3, 16, 17, 29)</strong> – मुफ्त शिक्षा, दण्ड निषेध, शिक्षक योग्यता।</li>
+                    <li><strong>समावेशी शिक्षा</strong> – बाधाओं को दूर करने के उपाय, IEP (वैयक्तिक शिक्षा योजना)।</li>
+                </ul>
+                <p>✅ ये नोट्स दिए गए सिलेबस के प्रत्येक बिंदु को कवर करते हैं। सभी सिद्धांतों के उदाहरण एवं शैक्षिक निहितार्थ दिए गए हैं।</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>📖 संपूर्ण CDP नोट्स – Assistant Teacher परीक्षा हेतु | सिलेबस आधारित (छवि अनुसार)</p>
+        <p>🌓 डार्क मोड के लिए ऊपर दिए बटन का उपयोग करें | ☰ मेनू से अन्य विषय देखें</p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+<script>
+    // Ensure drawer links close drawer on click (additional)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('sideDrawer').classList.remove('open');
+            document.getElementById('drawerOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    // Re-attach dark mode toggle if needed (script.js already handles)
+</script>
+</body>
+</html>
