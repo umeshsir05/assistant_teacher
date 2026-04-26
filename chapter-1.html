@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Chapter 1: Learning and Acquisition | Language Pedagogy</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, color 0.2s, border-color 0.2s;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.55;
+    }
+    :root {
+      --bg-primary: #f9fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #334155;
+      --border-light: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --header-bg: #ffffffdd;
+      --footer-bg: #f1f5f9;
+      --badge-bg: #eef2ff;
+      --tip-bg: #fef9e3;
+    }
+    body.dark {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #1e293b;
+      --text-primary: #e2e8f0;
+      --text-secondary: #cbd5e1;
+      --border-light: #334155;
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --header-bg: #0f172ad9;
+      --footer-bg: #0f172a;
+      --badge-bg: #1e293b;
+      --tip-bg: #2d3a3f;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* Header & Navigation */
+    .site-header {
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 0.9rem 1.5rem;
+    }
+    .logo a {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .hamburger .bar {
+      width: 100%;
+      height: 3px;
+      background-color: var(--text-primary);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .nav-menu {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .nav-list {
+      display: flex;
+      gap: 0.3rem;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-list li a {
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+    .nav-list li a:hover, .nav-list li a.active {
+      background: var(--accent);
+      color: white;
+    }
+    .dark-toggle {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 2rem;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      margin-left: 0.5rem;
+    }
+    .dark-toggle:hover {
+      background: var(--accent);
+      color: white;
+    }
+    main {
+      padding: 2rem 0 3rem;
+    }
+    .chapter-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      border-radius: 2rem;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--accent), #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 1rem;
+    }
+    h3 {
+      margin: 1.5rem 0 0.8rem;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 1.2rem;
+      padding: 1.3rem;
+    }
+    .info-card i {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .comparison-table {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border-radius: 1rem;
+    }
+    th, td {
+      border: 1px solid var(--border-light);
+      padding: 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--badge-bg);
+      font-weight: 600;
+    }
+    .tip-box {
+      background: var(--tip-bg);
+      border-left: 5px solid var(--accent);
+      padding: 1rem 1.2rem;
+      border-radius: 1rem;
+      margin: 1.2rem 0;
+    }
+    .definition-list {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    .definition-list li {
+      margin: 0.5rem 0;
+    }
+    footer {
+      background: var(--footer-bg);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile Responsive Menu */
+    @media screen and (max-width: 860px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100% - 70px);
+        background: var(--bg-secondary);
+        backdrop-filter: blur(20px);
+        box-shadow: 5px 0 25px rgba(0,0,0,0.2);
+        flex-direction: column;
+        transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        z-index: 999;
+        padding: 2rem 1rem;
+        border-right: 1px solid var(--border-light);
+      }
+      .nav-menu.open {
+        left: 0;
+      }
+      .nav-list {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-list li a {
+        display: block;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+      }
+      .header-container {
+        padding: 0.7rem 1rem;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
+    }
+    @media (max-width: 680px) {
+      .container {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo"><a href="#"><i class="fas fa-language"></i> LangPedagogy</a></div>
+    
+    <!-- Hamburger toggle button -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+      <ul class="nav-list">
+        <li><a href="#" data-page="home">🏠 Home</a></li>
+        <li><a href="#" data-page="about">📖 About</a></li>
+        <li><a href="#" data-page="contact">✉️ Contact</a></li>
+        <li><a href="#" data-page="chapter1" class="active">📘 Ch 1</a></li>
+        <li><a href="#" data-page="chapter2">📗 Ch 2</a></li>
+        <li><a href="#" data-page="chapter3">📙 Ch 3</a></li>
+        <li><a href="#" data-page="chapter4">📕 Ch 4</a></li>
+        <li><a href="#" data-page="chapter5">📔 Ch 5</a></li>
+        <li><a href="#" data-page="chapter6">📒 Ch 6</a></li>
+        <li><a href="#" data-page="chapter7">📓 Ch 7</a></li>
+        <li><a href="#" data-page="chapter8">📖 Ch 8</a></li>
+        <li><a href="#" data-page="chapter9">📚 Ch 9</a></li>
+      </ul>
+    </nav>
+
+    <button class="dark-toggle" id="darkModeToggle" aria-label="Dark mode"><i class="fas fa-moon"></i></button>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <span class="chapter-badge">📘 Chapter 1</span>
+    <h1>Learning and Acquisition</h1>
+    
+    <!-- Introduction: Language Pedagogy -->
+    <div class="card">
+      <p><strong>Language Pedagogy</strong> is the discipline concerned with the theories and techniques of teaching language. It has been described as a type of teaching wherein the teacher draws from his prior knowledge and actual experience in teaching language. It can be split into two parts:</p>
+      <ul class="definition-list">
+        <li><strong>Language Acquisition</strong> (भाषा अधिग्रहण)</li>
+        <li><strong>Language Learning</strong> (भाषा अधिगम)</li>
+      </ul>
+    </div>
+
+    <!-- 1. Acquisition -->
+    <h2>1. Acquisition (अधिग्रहण)</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <i class="fas fa-brain"></i>
+        <p>We acquire our mother tongue. When a language is learnt without a systematic and conscious process, it is called Acquisition. Generally the language is learnt without knowing grammar, rules and regulations in childhood period by Acquisition. Acquisition contains natural and subconscious process.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-leaf"></i>
+        <p>The environment plays an important role in the acquisition of language. The child is a passive recipient of external influence from parents, siblings and others. Language acquisition is an informal process.</p>
+      </div>
+    </div>
+    <div class="card">
+      <ul class="definition-list">
+        <li>To learn a new language the children should increase their word power.</li>
+        <li>The language that a child acquires naturally from his home and society environment is called <strong>first language</strong>.</li>
+        <li>The child learns that first language through speech.</li>
+        <li>Language is a habit – this means language is acquired through rules use.</li>
+        <li>If students come from a diverse background should discourage to use their mother tongue.</li>
+        <li>If a person has just started learning a language and has acquired good command over grammar, it implies that he knows the rules of the language.</li>
+      </ul>
+    </div>
+
+    <h3>📌 Characteristics of Acquisition</h3>
+    <div class="comparison-table">
+      <table>
+        <tr><th>Attribute</th><th>Description</th></tr>
+        <tr><td>Process</td><td>Subconscious process (अवचेतन प्रक्रिया), Natural process (प्राकृतिक प्रक्रिया), Automatic process (स्वचालित प्रक्रिया)</td></tr>
+        <tr><td>Language</td><td>Denotes Native Language (Mother tongue) (मातृभाषा), First language</td></tr>
+        <tr><td>Grammar rules</td><td>No need (आवश्यक नहीं)</td></tr>
+        <tr><td>Knowledge</td><td>Practical knowledge (व्यावहारिक ज्ञान)</td></tr>
+        <tr><td>Situation</td><td>Informal situation (अनौपचारिक स्थिति)</td></tr>
+        <tr><td>Requires</td><td>Communication Environment (संवाद वातावरण)</td></tr>
+      </table>
+    </div>
+
+    <!-- 2. Learning -->
+    <h2>2. Learning (अधिगम)</h2>
+    <div class="card">
+      <p>Learning a language is a process of learning Second Language in which learners learn the rules and regulations of grammar and vocabulary. Persons’ learning experience is impacted through the capability and experience of teachers.</p>
+      <ul class="definition-list">
+        <li>For language learning children should be encouraged to read a lot of children literature in the target language because language is caught through plenty of exposure to reading.</li>
+        <li>The language family to which English belongs is known as the <strong>Indo-European language family</strong>.</li>
+        <li>English language learning becomes easy when a rich input environment is provided to the learners.</li>
+      </ul>
+    </div>
+
+    <h3>📌 Characteristics of Learning</h3>
+    <div class="comparison-table">
+      <table>
+        <tr><th>Attribute</th><th>Description</th></tr>
+        <tr><td>Process</td><td>Conscious process (सचेत प्रक्रिया), Gradual process (क्रमिक प्रक्रिया), Systematic process (व्यवस्थित प्रक्रिया)</td></tr>
+        <tr><td>Modified</td><td>Experience and behaviours</td></tr>
+        <tr><td>Motivator</td><td>Learning speed and intensity (तीव्रता) of learners are decided by motivator (प्रेरक)</td></tr>
+        <tr><td>Need</td><td>Grammar rules, Vocabulary</td></tr>
+        <tr><td>Situation</td><td>Formal situation (औपचारिक स्थिति)</td></tr>
+        <tr><td>Remark</td><td>One may have a different rate of learning. Person’s learning experience is impacted through capability & experience of teachers. The existing knowledge (मौजूदा ज्ञान)</td></tr>
+      </table>
+    </div>
+
+    <!-- Types of Learning -->
+    <h2>🧠 Types of Learning</h2>
+    <div class="grid-2">
+      <div class="info-card"><i class="fas fa-person-walking"></i> <strong>Motor Learning (मोटर लर्निंग)</strong><br>Change in capability to perform a skill (walking, driving, climbing) via practice or experience. Permanent improvement in performance.</div>
+      <div class="info-card"><i class="fas fa-comment-dots"></i> <strong>Verbal Learning (मौखिक शिक्षा)</strong><br>Memorization & retention of words; communication methods: speaking, songs, picture symbol, etc. Introduction during oral presentation tells audience aims. In oral communication, how you say it matters most.</div>
+      <div class="info-card"><i class="fas fa-lightbulb"></i> <strong>Conceptual Learning (वैचारिक शिक्षा)</strong><br>Understanding concepts, organizing data; mental processes: Thinking, Reasoning, Intelligence.</div>
+    </div>
+
+    <!-- Theorists Section -->
+    <h2>🏛️ Foundational Theorists</h2>
+    
+    <!-- Jean Piaget -->
+    <div class="card">
+      <h3><i class="fas fa-child"></i> Jean Piaget</h3>
+      <p><strong>Father of child psychology (बाल मनोविज्ञान के जनक)</strong> – Swiss biologist, philosopher, psychologist.</p>
+      <p><strong>According to Piaget:</strong> Children start learning with: Adaptation (रूपांतरण), Assimilation (आत्मसात), Accommodation (मेल). Children collect small unit of knowledge (ज्ञान की छोटी इकाई) and make a bigger concept.</p>
+      <div class="tip-box">💡 Remark: Children create their own world of knowledge by their units of knowledge.</div>
+    </div>
+
+    <!-- Noam Chomsky -->
+    <div class="card">
+      <h3><i class="fas fa-microphone-alt"></i> Noam Chomsky</h3>
+      <p>American linguist, philosopher, cognitive scientist, historian, social critic.</p>
+      <p><strong>According to Chomsky:</strong> Children are born with inherited ability (जन्मजात योग्यता) to learn human language. Every person possesses <strong>LAD (Language Acquisition Device)</strong> in their brain. The role of language acquisition is to generate grammar rules.</p>
+      <ul class="definition-list">
+        <li>Children cannot learn a language by imitation only.</li>
+        <li>Children learn vocabulary and LAD applies the rules of language to form sentences.</li>
+        <li>Children have inherited ability to understand the rules of language.</li>
+        <li>Learning a new language after puberty leads to difficulty in acquisition of a foreign language.</li>
+      </ul>
+    </div>
+
+    <!-- Vygotsky -->
+    <div class="card">
+      <h3><i class="fas fa-users"></i> Lev Vygotsky</h3>
+      <p>Foundation of cognitive theory – Social development theory.</p>
+      <p><strong>According to:</strong> Trainer has better understanding or higher ability level than learners, it is called <strong>MKO (More Knowledgeable Other)</strong>. MKO stands for a person who may not be perfect in every field. Language is developed with social interaction. Language plays a critical role in cognitive development.</p>
+      <p><strong>ZPD (Zone of Proximal Development):</strong> It denotes the difference between what a child achieves independently and with guidance and encouragement by a skilled partner.</p>
+      <p><strong>Scaffolding:</strong> It is an educational practice that helps students to retain and apply new knowledge. MKO and ZPD are initially beyond the learner’s capacity.</p>
+      <div class="tip-box">🤝 Remark: Emphasized peer and collaborative learning.</div>
+    </div>
+
+    <!-- B.F. Skinner -->
+    <div class="card">
+      <h3><i class="fas fa-hand-fist"></i> B.F. Skinner</h3>
+      <p><strong>Propounder – Conditioning theory, Operant conditioning theory.</strong> Operant conditioning theory is a method of learning that uses rewards and punishment to modify behaviour.</p>
+      <p><strong>According to:</strong> The best way to understand behaviour is to look at causes of action and its consequences (परिणाम). Children learn language based on behaviourist reinforcement principle by associating.</p>
+    </div>
+
+    <!-- Grammar Translation Method & Direct Method -->
+    <h2>📖 Grammar Translation Method</h2>
+    <div class="card">
+      <ul class="definition-list">
+        <li>It is also called <strong>classical method</strong>.</li>
+        <li>The first language is maintained as the reference system in acquisition of second language.</li>
+        <li>Grammar teaching is more meaningful when taught <strong>in context</strong>.</li>
+        <li>Grammar can be taught inductively by giving examples to derive rules.</li>
+        <li>In speaking, listening, reading and writing, the only favourable thing is translation questions are easy to set.</li>
+        <li><strong>Direct method:</strong> teaching should be done only in the target language.</li>
+      </ul>
+    </div>
+
+    <div class="tip-box" style="margin-top: 2rem;">
+      <i class="fas fa-graduation-cap"></i> <strong>Pedagogical Synthesis:</strong> Acquisition is subconscious, natural, and informal; Learning is conscious, systematic, and formal. Theorists like Piaget, Chomsky, Vygotsky, and Skinner provide complementary views. Effective pedagogy integrates rich input, social interaction, and explicit instruction.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 LangPedagogy — Chapter 1: Learning and Acquisition (based on language pedagogy sources, CG Vyapam TET references)</p>
+</footer>
+
+<script>
+  (function() {
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const storedTheme = localStorage.getItem('langPedagogyTheme_ch1_v2');
+    function updateIcon(isDark) {
+      if (!darkToggle) return;
+      const icon = darkToggle.querySelector('i');
+      if (icon) {
+        if (isDark) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      }
+    }
+    if (storedTheme === 'dark') {
+      body.classList.add('dark');
+      updateIcon(true);
+    } else if (storedTheme === 'light') {
+      body.classList.remove('dark');
+      updateIcon(false);
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        body.classList.add('dark');
+        updateIcon(true);
+        localStorage.setItem('langPedagogyTheme_ch1_v2', 'dark');
+      } else {
+        body.classList.remove('dark');
+        updateIcon(false);
+        localStorage.setItem('langPedagogyTheme_ch1_v2', 'light');
+      }
+    }
+    if (darkToggle) {
+      darkToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark')) {
+          body.classList.remove('dark');
+          localStorage.setItem('langPedagogyTheme_ch1_v2', 'light');
+          updateIcon(false);
+        } else {
+          body.classList.add('dark');
+          localStorage.setItem('langPedagogyTheme_ch1_v2', 'dark');
+          updateIcon(true);
+        }
+      });
+    }
+
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    function closeMobileMenu() {
+      if (navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+        body.classList.remove('menu-open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      }
+    }
+    function toggleMobileMenu() {
+      if (navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        navMenu.classList.add('open');
+        body.classList.add('menu-open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'true');
+      }
+    }
+    if (hamburger) {
+      hamburger.addEventListener('click', toggleMobileMenu);
+    }
+    // Close menu on link click (for better UX)
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        closeMobileMenu();
+        // For demonstration, show alert if other chapters are clicked (since only Chapter1 exists)
+        const page = link.getAttribute('data-page');
+        if (page !== 'chapter1') {
+          e.preventDefault();
+          alert(`"${link.innerText}" page is under construction. Only Chapter 1 content is available in this demo.`);
+        } else {
+          // stay on same page, but we can prevent default or allow hash? just keep.
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    });
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isMenuOpen = navMenu && navMenu.classList.contains('open');
+      if (!isMenuOpen) return;
+      const isClickInsideMenu = navMenu.contains(event.target);
+      const isClickOnHamburger = hamburger && hamburger.contains(event.target);
+      if (!isClickInsideMenu && !isClickOnHamburger) {
+        closeMobileMenu();
+      }
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 860 && navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
