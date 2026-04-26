@@ -1,4 +1,6 @@
 /* style.css - LangPedagogy Website */
+/* Full improved version with enhanced toggle menu appearance, dark mode, responsive */
+
 /* Reset & Base */
 * {
   margin: 0;
@@ -30,6 +32,8 @@ body {
   --footer-bg: #f1f5f9;
   --badge-bg: #eef2ff;
   --tip-bg: #fef9e3;
+  --nav-hover-bg: rgba(59, 130, 246, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
 }
 
 /* Dark Mode Variables */
@@ -47,6 +51,8 @@ body.dark {
   --footer-bg: #0f172a;
   --badge-bg: #1e293b;
   --tip-bg: #2d3a3f;
+  --nav-hover-bg: rgba(96, 165, 250, 0.15);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
 }
 
 body {
@@ -99,13 +105,13 @@ body {
   margin-right: 6px;
 }
 
-/* Hamburger Menu (mobile) */
+/* Hamburger Menu (mobile) - enhanced animated */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
-  height: 22px;
+  width: 30px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -117,11 +123,22 @@ body {
   width: 100%;
   height: 3px;
   background-color: var(--text-primary);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
 }
 
-/* nav menu */
+/* Animated X when menu open */
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation menu - desktop */
 .nav-menu {
   flex: 1;
   display: flex;
@@ -383,41 +400,94 @@ body {
   color: var(--text-secondary);
 }
 
-/* ========== MOBILE RESPONSIVE (TOGGLE MENU) ========== */
+/* ========== ENHANCED MOBILE RESPONSIVE TOGGLE MENU ========== */
 @media screen and (max-width: 860px) {
   .hamburger {
     display: flex;
   }
+
   .nav-menu {
     position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: calc(100% - 70px);
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
     background: var(--bg-secondary);
     backdrop-filter: blur(20px);
-    box-shadow: 5px 0 25px rgba(0,0,0,0.2);
-    flex-direction: column;
+    background-color: rgba(var(--bg-secondary-rgb, 255,255,255), 0.97);
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
     transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    z-index: 999;
-    padding: 2rem 1rem;
+    z-index: 1000;
+    padding: 5rem 1.5rem 2rem;
     border-right: 1px solid var(--border-light);
+    overflow-y: auto;
   }
+
+  /* Dark mode specific overlay background */
+  body.dark .nav-menu {
+    background: rgba(15, 23, 42, 0.98);
+  }
+
   .nav-menu.open {
     left: 0;
   }
+
   .nav-list {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
+
+  .nav-list li {
+    width: 100%;
+  }
+
   .nav-list li a {
-    display: block;
-    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.9rem 1rem;
     font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    background: transparent;
+    color: var(--text-primary);
+    transition: background 0.2s, transform 0.1s;
   }
+
+  .nav-list li a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .nav-list li a.active {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Keep emoji spacing */
+  .nav-list li a i, .nav-list li a .emoji {
+    margin-right: 8px;
+  }
+
+  /* Prevent body scroll when menu open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Adjust header container for mobile */
   .header-container {
     padding: 0.7rem 1rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  .nav-menu {
+    width: 85%;
+    left: -85%;
   }
   .hero h1 {
     font-size: 1.8rem;
@@ -435,9 +505,6 @@ body {
     flex-direction: column;
     gap: 0.8rem;
   }
-}
-
-@media screen and (max-width: 480px) {
   .container {
     padding: 0 1rem;
   }
@@ -454,11 +521,6 @@ body {
     width: 36px;
     height: 36px;
   }
-}
-
-/* Prevent body scroll when menu open on mobile */
-body.menu-open {
-  overflow: hidden;
 }
 
 /* General utility */
